@@ -407,10 +407,6 @@ export function ConfigureWizard({
             )}
           </div>
 
-          <p className="rounded-2xl bg-card px-1 py-3 font-display text-sm font-semibold text-muted">
-            {t.payInfo}
-          </p>
-
           <div className="grid gap-4 sm:grid-cols-2">
             <label className="block sm:col-span-2">
               <span className={labelCls}>{t.fullName}</span>
@@ -482,8 +478,7 @@ export function ConfigureWizard({
               <Sparkle size={20} /> {submitState === "busy" ? t.submitting : w.placeOrder}
             </button>
           </div>
-          <p className="mt-8 font-display text-xs font-semibold text-muted">{t.submitNote}</p>
-          <p className="mt-1.5 text-xs text-muted/80">{t.privacyNote}</p>
+          <p className="mt-8 text-xs text-muted/80">{t.privacyNote}</p>
           {submitState === "error" && <p className="mt-3 font-display font-semibold text-sm text-pink">{t.errorGeneric}</p>}
         </form>
       )}

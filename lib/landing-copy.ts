@@ -133,7 +133,6 @@ export interface Copy {
   form: {
     heading: string;
     sub: string;
-    payInfo: string; // "payment arranged after confirmation" banner
     // section legends
     giftLegend: string;
     buyerLegend: string;
@@ -170,7 +169,6 @@ export interface Copy {
     // submit
     submit: string;
     submitting: string;
-    submitNote: string; // small note under the button
     privacyNote: string; // one-line GDPR / data-use basis under the button
     // success
     successTitle: string;
@@ -191,7 +189,7 @@ export interface Copy {
 
 export const COPY: Copy = {
   nav: { products: "Proizvodi" },
-    orderCta: "Naruči odmah",
+    orderCta: "Naručite odmah",
     hero: {
       eyebrow: "Personalizirani poklon za dijete",
       title: "Pretvorite svijet koji {kid} voli u {gift} koji se pamti",
@@ -199,10 +197,10 @@ export const COPY: Copy = {
       titleGift: "poklon",
       subtitle:
         "Personalizirana tiskana bojanka i knjižica aktivnosti za djecu od 3 do 8 godina. Odaberete temu koju dijete voli i njegovo ime — mi je izradimo, otisnemo i dostavimo u Hrvatskoj. Savršen rođendanski poklon koji ne ovisi o ekranu.",
-      cta: "Naruči odmah",
-      ctaNote: "Narudžbu potvrđujemo i šaljemo upute za plaćanje naknadno · dostava u Hrvatskoj",
+      cta: "Naručite odmah",
+      ctaNote: "Personalizirajte poklon i odaberite dostavu u Hrvatskoj",
       badgeApp: "Oboji u aplikaciji",
-      badgeBooklet: "Naruči kao poklon",
+      badgeBooklet: "Naručite kao poklon",
     },
     trust: [
       "Ime djeteta na koricama i unutra",
@@ -250,7 +248,7 @@ export const COPY: Copy = {
     products: {
       heading: "Odaberite svoju knjižicu",
       sub: "Knjižica aktivnosti, slikovnica abecede — ili oba kompleta po nižoj cijeni.",
-      choose: "Odaberi",
+      choose: "Odaberite",
       bundleBadge: "Ušteda €5",
       cards: {
         activity: {
@@ -287,13 +285,13 @@ export const COPY: Copy = {
       seeAll: "Personalizirajte svoju",
       bundleTitle: "Uzmite oba kompleta i uštedite €5",
       bundleSub: "Abeceda + brojevi zajedno za €25 (umjesto €30).",
-      bundleCta: "Uzmi oba",
+      bundleCta: "Uzmite oba",
     },
     wizard: {
       steps: ["Personalizacija", "Pregled", "Narudžba"],
       back: "Natrag",
       next: "Dalje",
-      placeOrder: "Pošalji narudžbu",
+      placeOrder: "Pošaljite narudžbu",
       personalizeHeading: "Personalizirajte poklon",
       personalizeSub: "Recite nam ime djeteta i nekoliko detalja — odmah vidite pregled.",
       childName: "Ime djeteta",
@@ -339,11 +337,11 @@ export const COPY: Copy = {
         number: "Broj",
       },
       orderHeading: "Dovršite narudžbu",
-      orderSub: "Recite nam kamo šaljemo — javljamo se osobno da potvrdimo narudžbu i plaćanje.",
+      orderSub: "Unesite podatke za dostavu i dovršite narudžbu.",
       summaryFor: "{name}",
       childLabel: "Dijete",
-      addChild: "Dodaj još jedno dijete",
-      removeChild: "Ukloni",
+      addChild: "Dodajte još jedno dijete",
+      removeChild: "Uklonite",
       multiChildHint: "Svako dijete dobiva svoj poklon s vlastitim imenom. Naručujete za više djece? Dodajte svako posebno.",
       total: "Ukupno",
     },
@@ -377,15 +375,15 @@ export const COPY: Copy = {
         "Ručni tisak i uvez u Hrvatskoj",
         "Dostava unutar Hrvatske",
       ],
-      note: "Plaćate uplatom na račun nakon što potvrdimo narudžbu; abecedu šaljemo čim zaprimimo uplatu.",
+      note: "Cijenu i dostupne načine dostave vidjet ćete pri narudžbi.",
     },
     ordering: {
       heading: "Kako se naručuje",
       steps: [
-        "Pošaljete narudžbu putem obrasca (bez plaćanja online).",
-        "Na e-mail dobivate potvrdu i upute za plaćanje uplatom na račun.",
-        "Platite uplatom na račun — čim zaprimimo uplatu, izrađujemo i tiskamo abecedu.",
-        "Dostavljamo je putem BoxNow paketomata ili Hrvatske pošte.",
+        "Odaberete komplet i unesete podatke za personalizaciju.",
+        "Pregledate poklon i podatke za dostavu.",
+        "Dovršite narudžbu.",
+        "Izrađujemo poklon i šaljemo ga na odabranu adresu.",
       ],
     },
     croatia: {
@@ -394,8 +392,7 @@ export const COPY: Copy = {
     },
     form: {
       heading: "Dovršite narudžbu",
-      sub: "Recite nam za koga je i kamo šaljemo — javljamo se osobno da potvrdimo narudžbu i dogovorimo plaćanje.",
-      payInfo: "Svaki poklon izrađujemo individualno s imenom djeteta. Čim pošaljete narudžbu, na e-mail dobivate potvrdu, a zatim vam se javljamo osobno s detaljima za plaćanje i dostavu. Plaćanje je isključivo uplatom na račun (IBAN) — nema plaćanja online ni karticom. Abecedu izrađujemo i šaljemo tek nakon zaprimljene uplate.",
+      sub: "Unesite podatke za personalizaciju i dostavu.",
       giftLegend: "Za koga je",
       buyerLegend: "Vaši podaci",
       deliveryLegend: "Dostava (unutar Hrvatske)",
@@ -428,14 +425,13 @@ export const COPY: Copy = {
       note: "Napomena",
       notePlaceholder: "Bilo što što bismo trebali znati…",
       optional: "nije obavezno",
-      submit: "Pošalji narudžbu",
-      submitting: "Šaljem…",
-      submitNote: "Na e-mail vam šaljemo potvrdu narudžbe i upute za plaćanje — isključivo uplatom na račun (IBAN), bez plaćanja online. Abecedu izrađujemo i šaljemo nakon zaprimljene uplate.",
+      submit: "Pošaljite narudžbu",
+      submitting: "Šaljemo…",
       privacyNote:
         "Vaše podatke koristimo isključivo za obradu i potvrdu ove narudžbe i ne dijelimo ih s trećima.",
       successTitle: "Narudžba zaprimljena",
       successBody:
-        "Hvala na narudžbi! Uskoro vam na e-mail stižu potvrda i upute za plaćanje uplatom na račun. Abecedu šaljemo čim zaprimimo uplatu.",
+        "Hvala Vam na narudžbi! Potvrdu i sažetak narudžbe šaljemo Vam e-mailom.",
       errorGeneric: "Nešto je pošlo po zlu — pokušajte ponovno.",
       errorFullName: "Upišite ime i prezime.",
       errorEmail: "Upišite ispravan e-mail.",
@@ -447,7 +443,7 @@ export const COPY: Copy = {
     faq: {
       heading: "Česta pitanja",
       items: [
-        { q: "Kako se plaća?", a: "Isključivo uplatom na račun (IBAN) — nema plaćanja online ni karticom. Narudžbu šaljete bez plaćanja, a na e-mail dobivate potvrdu i upute za uplatu. Abecedu izrađujemo i šaljemo čim zaprimimo uplatu." },
+        { q: "Kako naručiti?", a: "Odaberite komplet, unesite podatke za personalizaciju i dostavu te dovršite narudžbu." },
         { q: "Koliko stoji?", a: "€25 po knjižici, sve uključeno — izrada, tisak i dostava unutar Hrvatske." },
         { q: "Za koju je dob?", a: "Za djecu od 3 do 8 godina. Težinu stranica prilagođavamo dobi koju upišete." },
         { q: "Koliko traje izrada i dostava?", a: "Obično nekoliko dana. Ako imate rok (npr. rođendan), upišite ga i potrudit ćemo se stići na vrijeme." },

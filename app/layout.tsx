@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Baloo_2, Nunito, Fredoka, Caveat, Sriracha } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
-import Script from "next/script";
 import "./globals.css";
 
 // Rounded display face used ONLY by the printed leaves / previews
@@ -40,9 +39,9 @@ const sriracha = Sriracha({
 });
 
 const SITE_URL = "https://www.mastograd.eu";
-const SITE_TITLE = "Maštograd — personalizirana abeceda i brojevi za djecu";
+const SITE_TITLE = "Maštograd — personalizirani pokloni za djecu";
 const SITE_DESCRIPTION =
-  "Personalizirana prva abeceda i brojevi za djecu od 3 do 6 godina: za svako slovo i broj listić za bojanje, sličicu i crte za pisanje, ručno izrađeno u Hrvatskoj i zapakirano kao poklon s imenom djeteta.";
+  "Personalizirani pokloni za djecu koji spajaju igru, učenje i maštu: prva slova i brojevi za bojanje, prepoznavanje i pisanje, izrađeno u Hrvatskoj.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -56,7 +55,7 @@ export const metadata: Metadata = {
     siteName: "Maštograd",
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
-    images: [{ url: "/og.jpg", width: 1200, height: 630, alt: "Maštograd — personalizirani listići za bojanje s imenom djeteta" }],
+    images: [{ url: "/og.jpg", width: 1200, height: 630, alt: "Maštograd — personalizirani pokloni za djecu" }],
   },
   twitter: {
     card: "summary_large_image",
@@ -95,11 +94,6 @@ export default function RootLayout({
         />
         {children}
         <Analytics />
-        <Script
-          strategy="afterInteractive"
-          src="https://umami-tamara.vercel.app/script.js"
-          data-website-id="fec800d1-f943-481f-8846-3e07c2cd8fae"
-        />
       </body>
     </html>
   );

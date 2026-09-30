@@ -1,6 +1,6 @@
 /**
  * Transactional email for orders — a friendly customer confirmation + a
- * notification to Tamara so she can reply personally with payment details.
+ * notification to Tamara with the order details.
  *
  * Sent via Resend's REST API (no SDK dependency). Best-effort: if
  * RESEND_API_KEY is unset, sends are skipped and logged — an order must never
@@ -10,8 +10,7 @@
  *                         (defaults to Resend's onboarding sender for testing)
  *   ORDER_NOTIFY_EMAIL  — where new-order notifications go (your inbox)
  *
- * No IBAN / predračun here by design: during validation Tamara arranges payment
- * by hand. This email just confirms the order landed.
+ * The customer email confirms the order without payment instructions.
  */
 
 const FROM = process.env.ORDER_FROM_EMAIL || "Maštograd <onboarding@resend.dev>";
@@ -121,7 +120,7 @@ function summaryRows(d: OrderEmailData): string {
     .join("");
 }
 
-/** Friendly confirmation to the buyer. No payment details — those come by hand. */
+/** Order confirmation to the buyer. */
 export function buildCustomerEmail(d: OrderEmailData): { subject: string; html: string } {
   const names = childNames(d);
   const who = names.length ? names.join(", ") : "vaše dijete";
@@ -132,9 +131,9 @@ export function buildCustomerEmail(d: OrderEmailData): { subject: string; html: 
       : d.product === "numbers"
         ? "personalizirane brojeve za"
         : names.length > 1 ? "personalizirane abecede za" : "personaliziranu abecedu za";
-  const intro = `Hvala na narudžbi! Zaprimili smo tvoju narudžbu za ${forWhom} <strong>${esc(who)}</strong>.`;
+  const intro = `Hvala Vam na narudžbi! Zaprimili smo Vašu narudžbu za ${forWhom} <strong>${esc(who)}</strong>.`;
   const next =
-    "Javit ću ti se uskoro osobno s detaljima za plaćanje (uplata na račun) i dostavu. Ako imaš pitanja, samo odgovori na ovaj e-mail.";
+    "Sažetak narudžbe nalazi se u nastavku. Ako imate pitanja, odgovorite na ovaj e-mail.";
 
   const html = `<div style="font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;max-width:520px;margin:0 auto;color:#2b2b2b;line-height:1.55;">
     <p>Pozdrav ${esc(d.full_name.split(" ")[0] || d.full_name)},</p>

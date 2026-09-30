@@ -94,6 +94,13 @@ body {
   font-family: var(--font-label), system-ui, sans-serif;
 }
 
+/* Homepage only: the Georgia display face from "Poklon s pričom".
+   Preserve the pastel design and the fonts used by product/print previews. */
+.pastel-home :is(h1, h2, h3, .font-display, header a) {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+}
+
 /* ── Accessible focus ring (keyboard users only) ─────────────── */
 :where(a, button, input, [tabindex]):focus-visible {
   outline: 3px solid var(--teal);
